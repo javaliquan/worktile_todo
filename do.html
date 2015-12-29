@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+
+    <!-- 新 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js
+"></script>
+    <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="js/do.js
+"></script>
+    <script>
+           var code=getParam("code");
+            getToken(code,function(){
+                 getProjects(function(){
+                    getTasks(function(data){
+                        exeTasksUI(data);
+                    });
+                });
+
+           });
+    </script>
+</head>
+<body>
+<div class="input-group">
+    <span class="input-group-addon" id="basic-addon1">项目列表:</span>
+    <select id="pselect" class="form-control">
+
+    </select>
+</div>
+<div class="input-group">
+    <span class="input-group-addon" id="basic-addon1">检测列表:</span>
+    <input id="checkText" type="text" class="form-control" placeholder="用逗号分割" aria-describedby="basic-addon1" value="Android开发,iOS开发,iOS验收,Android验收">
+</div>
+   <h4>任务组:</h4>
+   <ul class="list-group" id="tasks">
+
+   </ul>
+<center> <input type="button" id="submitCheck" style="width: 100px;height: 50px;font-size: 20px;" name="提交" value="提交"/>
+</center>
+
+
+</body>
+</html>
